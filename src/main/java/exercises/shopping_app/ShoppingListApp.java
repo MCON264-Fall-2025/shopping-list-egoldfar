@@ -85,7 +85,7 @@ public class ShoppingListApp {
      * by aisle and then item name.
      */
     public static void insertSorted(ListInterface<ShoppingItem> list, ShoppingItem item) {
-        for(int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             if (item.compareTo(list.get(i)) < 0) {
                 list.add(i, item);
                 return;
