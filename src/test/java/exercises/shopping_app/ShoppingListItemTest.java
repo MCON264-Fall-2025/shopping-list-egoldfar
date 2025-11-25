@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ShoppingItemTest {
+public class ShoppingListItemTest {
 
     @Test
     void compareToOrdersByAisleFirst() {
