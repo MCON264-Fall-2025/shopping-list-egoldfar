@@ -15,55 +15,55 @@ import edu.touro.mcon264.apps.collections.ListInterface;
  * Exit the program.
  */
 public class ShoppingListApp {
-public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-    // Choose implementation:
-    ListInterface<ShoppingItem> shoppingList = new ArrayBasedList<>();
-    // or:
-    // ListInterface<ShoppingItem> shoppingList = new LinkedBasedList<>();
+        // Choose implementation:
+        ListInterface<ShoppingItem> shoppingList = new ArrayBasedList<>();
+        // or:
+        // ListInterface<ShoppingItem> shoppingList = new LinkedBasedList<>();
 
-    boolean running = true;
+        boolean running = true;
 
-    while (running) {
-        printMenu();
-        System.out.print("Choose an option: ");
-        String choice = scanner.nextLine().trim();
+        while (running) {
+            printMenu();
+            System.out.print("Choose an option: ");
+            String choice = scanner.nextLine().trim();
 
-        switch (choice) {
-            case "1":
-                System.out.print("Enter aisle: ");
-                String aisle = scanner.nextLine().trim();
-                System.out.print("Enter item name: ");
-                String name = scanner.nextLine().trim();
-                ShoppingItem newItem = new ShoppingItem(aisle, name);
-                insertSorted(shoppingList, newItem);
-                System.out.println("Added: " + newItem);
-                break;
-            case "2":
-                System.out.println("Current shopping list:");
-                printList(shoppingList);
-                break;
-            case "3":
-                ShoppingItem next = shopNext(shoppingList);
-                if (next == null) {
-                    System.out.println("All done! No items left to shop.");
-                } else {
-                    System.out.println("Next item to buy: " + next);
-                }
-                break;
-            case "0":
-                running = false;
-                System.out.println("Goodbye!");
-                break;
-            default:
-                System.out.println("Unknown option. Please try again.");
+            switch (choice) {
+                case "1":
+                    System.out.print("Enter aisle: ");
+                    String aisle = scanner.nextLine().trim();
+                    System.out.print("Enter item name: ");
+                    String name = scanner.nextLine().trim();
+                    ShoppingItem newItem = new ShoppingItem(aisle, name);
+                    insertSorted(shoppingList, newItem);
+                    System.out.println("Added: " + newItem);
+                    break;
+                case "2":
+                    System.out.println("Current shopping list:");
+                    printList(shoppingList);
+                    break;
+                case "3":
+                    ShoppingItem next = shopNext(shoppingList);
+                    if (next == null) {
+                        System.out.println("All done! No items left to shop.");
+                    } else {
+                        System.out.println("Next item to buy: " + next);
+                    }
+                    break;
+                case "0":
+                    running = false;
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Unknown option. Please try again.");
+            }
+
+            System.out.println();
         }
-
-        System.out.println();
+        scanner.close();
     }
-    scanner.close();
-}
 
     public static void printMenu() {
         System.out.println("Menu:");
